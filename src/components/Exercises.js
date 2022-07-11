@@ -47,15 +47,22 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       sx={{
         mt: { lg: '110px' }
       }}
-      mt="50px"
+      mt="20px"
       p="20px"
     >
-      <Typography
-        variant="h3"
-        mb="46px"
-      >
-        Showing Results
-      </Typography>
+      <Box textAlign="center" width="100%" mb="50px">
+        <Typography
+          variant="h4"
+          mb="20px"
+          fontWeight="bold"
+        >
+          Exercises
+        </Typography>
+        <Typography variant="h5">
+          Make sure to check out these exercises!
+        </Typography>
+      </Box>
+      
       <Stack direction="row"
         sx={{
           gap: { lg: '110px', xs: '50px' }

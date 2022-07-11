@@ -3,7 +3,6 @@ import React from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 
 import HorizontalScrollbar from './HorizontalScrollbar'
-import Loader from './Loader'
 
 const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
   return (
@@ -11,23 +10,31 @@ const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
       mt: { lg: '100px', xs: '0' }
     }}>
       <Typography variant="h4" mb={5} ml={5}>
-        Exercises targeting the same muscle group
+        Other Exercises Targeting {` `}
+        <span style={{
+          color: '#ff2625',
+          textTransform: 'capitalize'
+        }}>{targetMuscleExercises[0].target}</span>
       </Typography>
       <Stack direction="row" sx={{
         p: '2', 
         position: 'relative',
         mb: 5
       }}>
-        {targetMuscleExercises.length ? <HorizontalScrollbar data={targetMuscleExercises} /> : <Loader /> }
+        <HorizontalScrollbar data={targetMuscleExercises} />
       </Stack>
       <Typography variant="h4" mb={5} ml={5}>
-        Exercises using the same equipment
+        Other Exercises Using {` `}
+        <span style={{
+          color: '#ff2625',
+          textTransform: 'capitalize'
+        }}>{equipmentExercises[0].equipment}</span>
       </Typography>
       <Stack direction="row" sx={{
         p: '2', 
         position: 'relative'
       }}>
-        {equipmentExercises.length ? <HorizontalScrollbar data={equipmentExercises} /> : <Loader /> }
+        <HorizontalScrollbar data={equipmentExercises} />
       </Stack>
     </Box>
   )

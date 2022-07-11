@@ -8,14 +8,17 @@ import { exerciseOptions, youtubeOptions, fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
+import Loader from '../components/Loader'
 
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState([])
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
   const [equipmentExercises, setEquipmentExercises] = useState([])
+  const [dataFetched, setDataFetched] = useState(false)
   const { id } = useParams()
 
+  // Fetch all exercise related data for the first time where the page is displayed
   useEffect(() => {
     const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com'
@@ -36,21 +39,35 @@ const ExerciseDetail = () => {
         exerciseOptions)
 
       setEquipmentExercises(equipmentExercisesData)
+      
+      // Flag specifying that the data is fully fetched, so that we don't show the loading spinner anymore
+      setDataFetched(true)
 
     }
     fetchExercisesData()
   }, [id])
   
+  // Detail component to show if the data is fetched
+  if (dataFetched) {
+    return (
+      <Box>
+        <Detail exerciseDetail={exerciseDetail} />
+        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
+        <SimilarExercises 
+          targetMuscleExercises={targetMuscleExercises} 
+          equipmentExercises={equipmentExercises}
+          />
+      </Box>
+    )
+  }
+
+  // If data is not yet fetched, show the loading spinner
   return (
     <Box>
-      <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
-      <SimilarExercises 
-        targetMuscleExercises={targetMuscleExercises} 
-        equipmentExercises={equipmentExercises}
-        />
+      <Loader />
     </Box>
   )
+  
 }
 
 export default ExerciseDetail

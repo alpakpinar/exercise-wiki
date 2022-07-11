@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { InfinitySpin } from 'react-loader-spinner'
 
 const Loader = () => {
   return (
-    <Stack direction="row" justifyContent="center" alignItems="center" width="100%">
-        <InfinitySpin color="gray" />
-    </Stack>
+    <Box mt="20px">
+      <Stack direction="row" justifyContent="center" alignItems="center" width="100%">
+          <InfinitySpin color="gray" />
+      </Stack>
+    </Box>
   )
 }
 
