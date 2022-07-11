@@ -7,15 +7,21 @@ import HorizontalScrollbar from './HorizontalScrollbar'
 const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
   return (
     <Box sx={{
-      mt: { lg: '100px', xs: '0' }
+      mt: { lg: '50px', xs: '0' }
     }}>
-      <Typography variant="h4" mb={5} ml={5}>
-        Other Exercises Targeting {` `}
-        <span style={{
-          color: '#ff2625',
-          textTransform: 'capitalize'
-        }}>{targetMuscleExercises[0].target}</span>
-      </Typography>
+      <Box textAlign="center" my={3} sx={{
+        pb: { lg: '20px' }
+      }}>
+        <Typography variant="h4">
+          Other Exercises Targeting {` `}
+          <span style={{
+            color: '#ff2625',
+            textTransform: 'capitalize',
+            fontWeight: 'bold'
+          }}>{targetMuscleExercises[0].target}</span>
+        </Typography>
+      </Box>
+      
       <Stack direction="row" sx={{
         p: '2', 
         position: 'relative',
@@ -23,13 +29,19 @@ const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
       }}>
         <HorizontalScrollbar data={targetMuscleExercises} />
       </Stack>
-      <Typography variant="h4" mb={5} ml={5}>
-        Other Exercises Using {` `}
-        <span style={{
-          color: '#ff2625',
-          textTransform: 'capitalize'
-        }}>{equipmentExercises[0].equipment}</span>
-      </Typography>
+      <Box textAlign="center" my={3} sx={{
+        pb: { lg: '20px' }
+      }}>
+        <Typography variant="h4">
+          Other Exercises Using {` `}
+          <span style={{
+            color: '#ff2625',
+            textTransform: 'capitalize',
+            fontWeight: 'bold'
+          }}>{equipmentExercises[0].equipment}</span>
+        </Typography>
+      </Box>
+      
       <Stack direction="row" sx={{
         p: '2', 
         position: 'relative'

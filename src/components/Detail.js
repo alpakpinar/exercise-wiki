@@ -28,17 +28,23 @@ const Detail = ({ exerciseDetail }) => {
     <Stack gap="60px" sx={{
       flexDirection: { 'lg' : 'row' },
       p: '20px',
+      mt: { 'lg' : '30px', 'xs' : '20px' },
+      mx: { 'lg' : '20px' },
       alignItems: 'center'
     }}>
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{
         gap: {lg: "35px", xs: "20px"}
       }}>
-        <Typography variant="h3" textTransform="capitalize">
+        <Typography variant="h4" textTransform="capitalize" fontWeight="bold">
           {name}
         </Typography>
         <Typography variant="h6">
-          Exercises keep you strong. {name} {` `} is one of the best exercises to
+          Exercises keep you strong. 
+          <span style={{
+            color: '#ff2625'
+          }}>{` `} {name} {` `} </span>
+          is one of the best exercises to
           target your {target}. It will help you improve your mood and energy.
         </Typography>
         {extraDetail.map((item) => (
