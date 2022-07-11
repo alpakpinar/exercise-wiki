@@ -10,7 +10,8 @@ const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
       mt: { lg: '50px', xs: '0' }
     }}>
       <Box textAlign="center" my={3} sx={{
-        pb: { lg: '20px' }
+        pb: { lg: '20px' },
+        px: { xs: '10px' },
       }}>
         <Typography variant="h4">
           Other Exercises Targeting {` `}
@@ -30,7 +31,8 @@ const SimilarExercises = ( {targetMuscleExercises, equipmentExercises} ) => {
         <HorizontalScrollbar data={targetMuscleExercises} />
       </Stack>
       <Box textAlign="center" my={3} sx={{
-        pb: { lg: '20px' }
+        pb: { lg: '20px' },
+        px: { xs: '20px' },
       }}>
         <Typography variant="h4">
           Other Exercises Using {` `}

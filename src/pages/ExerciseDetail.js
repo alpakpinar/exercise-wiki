@@ -23,6 +23,13 @@ const ExerciseDetail = () => {
   // Fetch all exercise related data for the first time where the page is displayed
   useEffect(() => {
     const fetchExercisesData = async () => {
+      // If we're changing the exercise, set the dataFetched to False first
+      // so that the loading spinner is displayed while we fetch new data
+      if (dataFetched) {
+        setDataFetched(false)
+      }
+      
+      // Fetch exercise and video data from RapidAPI
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com'
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
@@ -32,12 +39,14 @@ const ExerciseDetail = () => {
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions)
       setExerciseVideos(exerciseVideosData.contents)
 
-      const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, 
+      const targetMuscleExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, 
         exerciseOptions)
 
       setTargetMuscleExercises(targetMuscleExercisesData)
       
-      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, 
+      const equipmentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, 
         exerciseOptions)
 
       setEquipmentExercises(equipmentExercisesData)
