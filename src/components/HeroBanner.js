@@ -27,10 +27,11 @@ const HeroBanner = () => {
             href="#exercises"
             sx={{
                 backgroundColor: '#FF2625',
-                padding: '10px'
+                padding: '10px',
+                textTransform: 'none'
             }}
             >
-            Explore exercises
+            Explore exercises!
         </Button>
         <Typography 
             fontWeight={600} 

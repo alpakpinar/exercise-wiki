@@ -58,19 +58,24 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         >
           Exercises
         </Typography>
-        <Typography variant="h5">
-          We have 
-          <span style={{ 
-            fontWeight: 'bold',
-            color: '#FF2625',
-          }}>
-            {` ${exercises.length} `}
-          </span> 
-          <span style={{ fontWeight: 'bold' }}>
-            {bodyPart !== 'all' ? `${bodyPart} ` : ' '}
-          </span>
-          exercises for you. Make sure to check them out!
-        </Typography>
+        {exercises.length > 0 ? (
+          <Typography variant="h5">
+            We have 
+            <span style={{ 
+              fontWeight: 'bold',
+              color: '#FF2625',
+            }}>
+              {` ${exercises.length} `}
+            </span> 
+            <span style={{ fontWeight: 'bold' }}>
+              {bodyPart !== 'all' ? `${bodyPart} ` : ' '}
+            </span>
+            exercises for you. Make sure to check them out!
+          </Typography>) : (
+          <Typography variant="h5">
+            Oops! We could not find any exercises, please try another search!
+          </Typography>
+        )}
       </Box>
       
       <Stack direction="row"
