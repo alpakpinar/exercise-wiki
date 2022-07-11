@@ -43,7 +43,7 @@ const Detail = ({ exerciseDetail }) => {
           Exercises keep you strong. 
           <span style={{
             color: '#ff2625'
-          }}>{` `} {name} {` `} </span>
+          }}>{` `} {name.charAt(0).toUpperCase() + name.slice(1)} {` `} </span>
           is one of the best exercises to
           target your {target}. It will help you improve your mood and energy.
         </Typography>

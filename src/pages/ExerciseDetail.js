@@ -16,6 +16,8 @@ const ExerciseDetail = () => {
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
   const [equipmentExercises, setEquipmentExercises] = useState([])
   const [dataFetched, setDataFetched] = useState(false)
+
+  // Get the ID of the exercise from the Route
   const { id } = useParams()
 
   // Fetch all exercise related data for the first time where the page is displayed

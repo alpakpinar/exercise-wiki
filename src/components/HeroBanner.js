@@ -10,7 +10,7 @@ const HeroBanner = () => {
         ml: { sm: '50px'}
     }} position="relative" p="20px">
         <Typography color="#FF2625" fontWeight={600} fontSize="26px">
-            Fitness Club
+            Golds GYM Club
         </Typography>
         <Typography fontWeight={700} sx={{
             fontSize: { lg: '44px', xs: '40px' }
@@ -19,7 +19,7 @@ const HeroBanner = () => {
             Sweat, Smile <br /> and Repeat
         </Typography>
         <Typography fontSize="22px" lineHeight="35px" mb={4}>
-            Check out the most effective exercises
+            Check out the most effective exercises!
         </Typography>
         <Button 
             variant="contained"

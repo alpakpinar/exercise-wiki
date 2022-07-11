@@ -59,7 +59,17 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           Exercises
         </Typography>
         <Typography variant="h5">
-          Make sure to check out these exercises!
+          We have 
+          <span style={{ 
+            fontWeight: 'bold',
+            color: '#FF2625',
+          }}>
+            {` ${exercises.length} `}
+          </span> 
+          <span style={{ fontWeight: 'bold' }}>
+            {bodyPart !== 'all' ? `${bodyPart} ` : ' '}
+          </span>
+          exercises for you. Make sure to check them out!
         </Typography>
       </Box>
       

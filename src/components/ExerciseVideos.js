@@ -27,7 +27,7 @@ const ExerciseVideos = ( {exerciseVideos, name} ) => {
         }}
         >
           {exerciseVideos?.slice(0,numVideos).map((item, index) => (
-            <Box sx={{ 'my' : { 'xs' : '15px' } }}>
+            <Box sx={{ 'my' : { 'xs' : '35px' } }}>
               <a
                 key={index}
                 className="exercise-video"

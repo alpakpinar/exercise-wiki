@@ -28,13 +28,16 @@ const Navbar = () => {
       >
         <Link to="/" style={{
           textDecoration: 'none',
-          color: '#3A1212',
-          borderBottom: '3px solid #FF2625'
-        }}>Home</Link>
+          color: '#3A1212'
+        }}
+        className='navbar-item' 
+        >Home</Link>
         <a href="#exercises" style={{
           textDecoration: 'none',
           color: '#3A1212'
-        }}>Exercises</a>
+        }}
+        className='navbar-item'
+        >Exercises</a>
       </Stack>
     </Stack>    
   )
