@@ -9,6 +9,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart } ) => {
   const [search, setSearch] = useState('')
   const [bodyParts, setBodyParts] = useState([])
 
+  // Fetch the body parts data, just once when the page is loaded
   useEffect(() => {
     const fetchExercisesData = async () => {
         const bodyPartsData = await fetchData(
@@ -23,6 +24,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart } ) => {
   
 
   const handleSearch = async () => {
+    // Function to handle search functionality
     if (search) {
         const exercisesData = await fetchData(
             'https://exercisedb.p.rapidapi.com/exercises',
@@ -39,6 +41,16 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart } ) => {
             // Clear the search field
             setSearch('')
             setExercises(searchedExercises)
+
+    }
+  }
+
+  const searchOnEnterKeyPress = (event) => {
+    /*
+     * Wrapper function that calls the search method when Enter key is pressed.
+     */
+    if (event.keyCode === 13) {
+        handleSearch()
     }
   }
 
@@ -67,6 +79,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart } ) => {
                 height="76px"
                 value={search}
                 onChange={(e) => {setSearch(e.target.value.toLowerCase())}}
+                onKeyDown={(e) => searchOnEnterKeyPress(e)}
                 placeholder="Search exercises"
                 type="text"
             />
