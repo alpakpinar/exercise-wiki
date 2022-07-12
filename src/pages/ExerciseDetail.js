@@ -39,15 +39,20 @@ const ExerciseDetail = () => {
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions)
       setExerciseVideos(exerciseVideosData.contents)
 
-      const targetMuscleExercisesData = await fetchData(
+      let targetMuscleExercisesData = await fetchData(
         `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, 
         exerciseOptions)
+        
+      // Do not show the same exercise again!
+      targetMuscleExercisesData = targetMuscleExercisesData.filter(item => item.name !== exerciseDetailData.name)
 
       setTargetMuscleExercises(targetMuscleExercisesData)
       
-      const equipmentExercisesData = await fetchData(
+      let equipmentExercisesData = await fetchData(
         `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, 
         exerciseOptions)
+
+      equipmentExercisesData = equipmentExercisesData.filter(item => item.name !== exerciseDetailData.name)
 
       setEquipmentExercises(equipmentExercisesData)
       
